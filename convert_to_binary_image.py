@@ -1,10 +1,13 @@
 from PIL import Image
 import numpy as np
+import os
 
 
 if __name__ == '__main__':
 
-	col = Image.open("SourceMaps/MD_0.png")
+	source_im = input('Enter your name: ')
+
+	col = Image.open("SourceMaps/" + source_im)
 	gray = col.convert('L')
 
 	# converting pixels to pure black or white
@@ -16,4 +19,8 @@ if __name__ == '__main__':
 
 	# Now we put it back in Pillow/PIL land
 	imfile = Image.fromarray(bw)
-	imfile.save("BinaryMaps/MD_1_bw.png")
+
+	source_im_wo_ext = os.path.splitext(source_im)[0]
+	out_im = source_im_wo_ext + "_binary.png"
+
+	imfile.save("BinaryMaps/" + out_im)
