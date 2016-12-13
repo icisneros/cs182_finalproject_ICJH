@@ -5,7 +5,7 @@ import os
 
 if __name__ == '__main__':
 
-	source_im = input('Enter your name: ')
+	source_im = input('Enter name of source image: ')
 
 	col = Image.open("SourceMaps/" + source_im)
 	gray = col.convert('L')
